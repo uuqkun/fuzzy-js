@@ -7,6 +7,7 @@ import Fuse from "fuse.js";
 import { SearchIcon } from "@chakra-ui/icons";
 
 import SearchResults from "./SearchResults";
+import { fuzzySearch } from "../helper/fuzzy.js";
 
 const Search = () => {
   const [queryText, setQueryText] = useState("");
@@ -20,15 +21,25 @@ const Search = () => {
       return;
     }
 
-    const fuse = new Fuse(data, {
+    // Method 1
+    /*
+    const fuzzy = new Fuse(data, {
       keys: ["first_name", "last_name", "email"],
       includeMatches: true,
       threshold: 0.5,
     });
 
-    const result = fuse.search(queryText, { limit: 10 });
-    console.log(result);
-    setSearchResults(result);
+    const result = fuzzy.search(queryText, { limit: 10 });
+    console.log(result)
+    setSearchResults(result)
+    */
+
+    // Method 2
+    const keys = ["first_name", "last_name", "email"];
+    const results = fuzzySearch(queryText, data, keys);
+
+    console.log(results);
+    setSearchResults(results);
   }, [queryText]);
 
   return (
