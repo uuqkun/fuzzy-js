@@ -1,19 +1,16 @@
-import { ChakraProvider, Heading, Box } from '@chakra-ui/react'
+import { ChakraProvider, Heading, Box } from "@chakra-ui/react";
 
-import Search from './components/Search'
+import Search from "./components/Search";
+import { CalculationForm } from "./components";
 
 const App = () => {
-	return (
-		<>
-			<Box height='100vh' maxWidth='100vw' maxHeight='100vh' overflow='hidden'>
-				<Heading align='center' as='h1' fontSize='5xl' mt='10rem'>
-					Search
-				</Heading>
+  return (
+    <>
+      <Box width="400px" marginX="auto" marginY="100px">
+        <CalculationForm />
+      </Box>
+    </>
+  );
+};
 
-				<Search />
-			</Box>
-		</>
-	)
-}
-
-export default App
+export default App;
