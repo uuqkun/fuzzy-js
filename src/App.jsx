@@ -1,13 +1,15 @@
 import { ChakraProvider, Heading, Box } from "@chakra-ui/react";
-
-import Search from "./components/Search";
-import { CalculationForm } from "./components";
+import { CalculationForm, PonselBekasForm } from "./components";
 
 const App = () => {
   return (
     <>
       <Box width="400px" marginX="auto" marginY="100px">
-        <CalculationForm />
+        {/* 2 inputs */}
+        {/* <CalculationForm /> */}
+
+        {/* 3 inputs */}
+        <PonselBekasForm />
       </Box>
     </>
   );
